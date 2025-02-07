@@ -1,7 +1,7 @@
 from.C_M import CM
 C=CM()
 class FileCheck:
-	def set_paths(A):B=C.os.path.dirname(C.os.path.abspath(C.sys.argv[0]));A.apkeditor_path=C.os.path.join(B,'APKEditor.jar');A.apktool_path=C.os.path.join(B,'APKTool_OR.jar');A.axml2xml_jar_path=C.os.path.join(B,'axml2xml.jar');A.Objectlogger=C.os.path.join(C.os.path.dirname(C.os.path.abspath(__file__)),'Objectlogger.smali')
+	def set_paths(A):B=C.os.path.dirname(C.os.path.abspath(C.sys.argv[0]));A.apkeditor_path=C.os.path.join(B,'APKEditor.jar');A.apktool_path=C.os.path.join(B,'APKTool_OR.jar');A.axml2xml_jar_path=C.os.path.join(B,'axml2xml.jar');A.Objectlogger=C.os.path.join(C.os.path.dirname(C.os.path.abspath(__file__)),'Objectlogger.smali');A.baksmali=C.os.path.join(C.os.path.dirname(C.os.path.abspath(__file__)),'Bak_Smali.jar')
 	def calculate_checksum(E,file_path):
 		A=C.hashlib.sha256()
 		try:
@@ -26,4 +26,10 @@ class FileCheck:
 					print(f"\n{C.g}       |\n       └──── {C.r}Downloaded ~{C.g}$ {B} Successfully. ✔\n")
 				else:exit(f'\n\n{C.lb}[ {C.rd}Error ! {C.lb}]{C.rd} Failed to download {C.y}{B} {C.rd}Status Code: {D.status_code}\n\n{C.lb}[ {C.y}INFO ! {C.lb}]{C.rd} Restart Script...{C.r}\n')
 			except G.exceptions.RequestException:exit(f'\n\n{C.lb}[ {C.rd}Error ! {C.lb}]{C.rd} Got an error while Fetching {C.y}{A}\n\n{C.lb}[ {C.rd}Error ! {C.lb}]{C.rd} No internet Connection\n\n{C.lb}[ {C.y}INFO ! {C.lb}]{C.rd} Internet Connection is Required to Download {C.y}{B}\n')
-	def F_D(A):B=[('https://github.com/TechnoIndian/RKPairip/releases/download/Editor/APKEditor.jar',A.apkeditor_path,'758f2f9153fff96c20260b177f025a3ca3cecc9777abdd43139a17e225724612'),('https://github.com/TechnoIndian/RKPairip/releases/download/Editor/apktool.jar',A.apktool_path,'8fdc17c6fe2e6d80d71b8718eb2a5d0379f1cc7139ae777f6a499ce397b26f54'),('https://github.com/TechnoIndian/RKPairip/releases/download/Editor/axml2xml.jar',A.axml2xml_jar_path,'e3a09af1255c703fc050e17add898562e463c87bb90c085b4b4e9e56d1b5fa62'),('https://raw.githubusercontent.com/TechnoIndian/Objectlogger/main/Objectlogger.smali',A.Objectlogger,'ff31dd1f55d95c595b77888b9606263256f1ed151a5bf5706265e74fc0b46697')];A.download_file(B);C.os.system('cls'if C.os.name=='nt'else'clear')
+	def F_D(A):B=[('https://github.com/TechnoIndian/RKPairip/releases/download/Editor/APKEditor.jar',A.apkeditor_path,'758f2f9153fff96c20260b177f025a3ca3cecc9777abdd43139a17e225724612'),('https://raw.githubusercontent.com/TechnoIndian/Objectlogger/main/Objectlogger.smali',A.Objectlogger,'ff31dd1f55d95c595b77888b9606263256f1ed151a5bf5706265e74fc0b46697')];A.download_file(B);C.os.system('cls'if C.os.name=='nt'else'clear')
+	def F_D_A(B,isAPKTool,Fix_dex,isSmali):
+		E=isSmali;D=Fix_dex;C=isAPKTool;A=[]
+		if C or D:A.append(('https://github.com/TechnoIndian/RKPairip/releases/download/Editor/apktool.jar',B.apktool_path,'8fdc17c6fe2e6d80d71b8718eb2a5d0379f1cc7139ae777f6a499ce397b26f54'))
+		if E:A.append(('https://github.com/TechnoIndian/ApkTool_Framwork/releases/download/APKTool_2.10.0/Bak_Smali.jar',B.baksmali,'418b3861efc0f3afffb10d58a244e848d34f86cbdd3261ad2a2d1d57ee663766'))
+		if C or D or E:A.append(('https://github.com/TechnoIndian/RKPairip/releases/download/Editor/axml2xml.jar',B.axml2xml_jar_path,'e3a09af1255c703fc050e17add898562e463c87bb90c085b4b4e9e56d1b5fa62'))
+		if A:B.download_file(A)
