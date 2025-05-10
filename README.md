@@ -71,9 +71,9 @@ Usage
 
     RKPairip -m YourApkPath.apk
     
-**Mode -m ➸ Show Instructions & Credits**
+**Mode -C ➸ Show Instructions & Credits**
 
-    RKPairip -c
+    RKPairip -C
 
 Fix Dex Regex
 -------------
